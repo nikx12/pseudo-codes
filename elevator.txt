@@ -1,0 +1,50 @@
+INPUT number of floors
+INPUT maximum capacity/weight
+INPUT buttonPressed
+INPUT currentCapacity
+	IF currentCapacity less than maximum capacity/weight
+		IF buttonPressed first time  THEN
+			LIGHTUP the relevant floor button
+					CALL function reachDestination(buttonPressed)
+					INPUT again buttonPressed
+					CALL function reachDestination(buttonPressed)
+		IF buttonPressed more than once on different floors THEN
+			WHILE number of buttonPressed is not zero
+				INPUT firstButtonPressed
+				INPUT nextButtonPressed
+					IF firstButtonPressed is same as nextButtonPressed
+						CALL function reachDestination(firstButtonPressed)
+					ELSE IF firstButtonPressed is smaller than nextButtonPressed
+						CALL function reachDestination(firstButtonPressed)
+					ELSE
+						CALL function reachDestination(nextButtonPressed)
+				INPUT next set of buttons
+	ELSE
+		ALERT capacity/weight overload
+					
+
+					
+CREATE function reachDestination(pass buttonPressed){					
+	IF currentCapacity less than maximum capacity/weight THEN
+		WHILE (currentPosition not reach buttonPressed){
+			
+			IF currentPosition lower than buttonPressed THEN
+				GO up to buttonPressed
+			ELSE IF currentPosition higher than buttonPressed THEN
+				GO down to buttonPressed
+		}
+		CALL function openDoor()
+	ELSE
+		ALERT capacity/weight overload
+	CALL function reachDestination(pass buttonPressed)
+}
+
+CREATE function openDoor(){
+	IF currentPosition same as buttonPressed THEN
+		OPEN door
+		LIGHT off the buttonPressed
+		DISPLAY and ALERT floor number as per buttonPressed
+		REMAIN open for 10 seconds
+		CLOSE door
+		
+}
