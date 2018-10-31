@@ -1,0 +1,29 @@
+pseudocode for a vending machine:
+
+select item to be purchased
+
+insert cash 
+
+CASE 1: cash < item value 
+item value - money = balance 
+prompt "insert" balance 
+'break' 
+
+CASE 2: cash > item value 
+cash - item value = change 
+eject item 
+eject change 
+'break' 
+
+CASE 3: cash = item value 
+eject item 
+'break' 
+
+CASE 4: select cancel 
+eject cash 
+
+CASE 5: machine not working
+eject cash
+display message "Machine not working"
+
+END
